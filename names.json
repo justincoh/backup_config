@@ -1,0 +1,14 @@
+{
+    "directories": [".config", ".vim"],
+    "files": [".agignore",
+        ".aliases",
+        ".bash_profile",
+        ".bash_prompt",
+        ".bashrc",
+        ".gitconfig",
+        ".osx",
+        ".profile",
+        ".vimrc",
+        "git-completion.bash"
+    ]
+}

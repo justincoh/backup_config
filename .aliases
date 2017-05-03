@@ -1,0 +1,5 @@
+alias brochure="cd ~/brochure && . ./env/bin/activate"
+alias handshake="cd ~/handshake && . .venv/bin/activate && . djserver/env/node/bin/activate"
+alias marketing="cd ~/marketing"
+alias run="./manage.py runserver"
+alias ls="ls -G"

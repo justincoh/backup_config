@@ -1,0 +1,21 @@
+[user]
+    name = Justin Cohen
+    email = justin.cohen@handshake.com
+[branch]
+    autosetuprebase = always
+[push]
+    default = current
+[alias]
+    feap = fetch --all --prune
+    co = checkout
+    st = status
+    br = branch
+    rc = rebase --continue
+    jira-co = "!f() { b=$1; shift; { git branch && git branch -r ; } | awk -v rpat=^[^/]*/$b -v pat=^$b '$1 ~ pat || $1 ~ rpat { print ; exit ; }' | cut -d/ -f2 | xargs -I{} git co {} $@; }; f"
+    lg = log --graph --pretty=format:'%C(yellow)%h%Creset -%C(red)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -10
+    ri = rebase -i
+    activity = for k in `git branch $@ | sed s/^..// | grep -v -- '->'`; do echo -e `git log -1 --pretty=format:"%Cgreen%ci %Cblue%cr%Creset" $k --`\\t"$k"; done | sort
+[rerere]
+    enabled = true
+[core]
+    editor = /usr/bin/vim

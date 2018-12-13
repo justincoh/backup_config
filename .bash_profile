@@ -1,12 +1,14 @@
-source .aliases;
-source .bash_prompt;
-source git-completion.bash;
+source ~/.aliases;
+source ~/.bash_prompt;
+source ~/git-completion.bash;
 
 bind "set completion-ignore-case on";
 bind "set show-all-if-ambiguous on";
 
 # . ~/env_home/bin/activate;
 export HS_ROOT=$HOME/handshake;
+export DEVBOX=justin;
+export AWS_DEFAULT_REGION=us-west-2;
 # . /usr/local/bin/virtualenvwrapper.sh;
 export PYTHONSTARTUP=~/.pythonrc;
 export GREP_OPTIONS="--color=always";

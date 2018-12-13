@@ -1,3 +1,4 @@
 env_config/*
 *.pyc
 *.swp
+.vscode/*

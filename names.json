@@ -9,6 +9,7 @@
         ".osx",
         ".profile",
         ".vimrc",
-        "git-completion.bash"
+        "git-completion.bash",
+        ".git_template/hooks/commit-msg"
     ]
 }

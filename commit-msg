@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Commit message hook that takes any commit on a branch like
+# PROD-1234-branch-for-issue
+# and prepends [PROD-1234] to the message if it's not already there
+
+ALREADY_TAGGED=`grep -oE "\[\w+-\d{3,5}\]" "$1"`
+
+if [ $ALREADY_TAGGED ]; then exit 0; fi;
+
+TICKET=`git symbolic-ref --short head | grep -oE --color="never" "^\w+-\d{1,5}"`
+
+if [ $TICKET ]; then
+    oldmsg=`cat $1`
+    echo "[$TICKET] $oldmsg" > "$1"
+fi

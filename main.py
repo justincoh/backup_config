@@ -22,7 +22,9 @@ def copy_files(filenames, dirs):
 
     for name in filenames:
         srcfile = HOME_DIR + "/{}".format(name)
-        destfile = THIS_DIR + "/{}".format(name)
+
+        # Only want the file, not its path
+        destfile = THIS_DIR + "/{}".format(name.split("/")[-1])
         copyfile(srcfile, destfile)
 
     print("{} files copied".format(len(filenames)))

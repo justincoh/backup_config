@@ -1,0 +1,30 @@
+# Shell prompt based on the Solarized Dark theme.
+# Screenshot: http://i.imgur.com/EkEtphC.png
+# Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
+# iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
+
+if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color >/dev/null 2>&1; then
+	export TERM='gnome-256color';
+elif infocmp xterm-256color >/dev/null 2>&1; then
+	export TERM='xterm-256color';
+fi;
+
+
+# Highlight the hostname when connected via SSH.
+#if [[ "${SSH_TTY}" ]]; then
+#	hostStyle="${bold}${red}";
+#else
+#	hostStyle="${yellow}";
+#fi;
+
+# Set the terminal title to the current working directory.
+# PROMPT is zsh specific
+# https://scriptingosx.com/2019/07/moving-to-zsh-06-customizing-the-zsh-prompt/
+setopt PROMPT_SUBST;
+precmd() {if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history -1)" >> ~/.logs/zsh-history-$(date "+%Y-%m-%d").log; fi}
+PROMPT='%F{14}%* %fin %F{green}%~%F{5}$(__git_ps1 " %s") %f$ '
+# setopt PROMPT_SUBST; PS1='[%n@%m %c$(__git_ps1 " (%s)")]\$ '
+export PROMPT
+
+PS2="\[${yellow}\]→ \[${reset}\]";
+export PS2;

@@ -13,6 +13,8 @@ export FURY_AUTH="zJ4r54n165xLvCPxzgxw"
 # export ANDROID_HOME=/usr/local/opt/android-sdk;
 export PROMPT_COMMAND='if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.logs/bash-history-$(date "+%Y-%m-%d").log; fi';
 export LSCOLORS='gxfxcxdxbxegedabagacad';
+
+# Colorized man pages
 man() {
 env \
 LESS_TERMCAP_mb=$(printf "\e[1;31m") \
@@ -31,3 +33,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 export PATH="/Users/JCohen/.ebcli-virtual-env/executables:$PATH"
+
+# Setting PATH for Python 3.8
+# The original version is saved in .zprofile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
+export PATH
